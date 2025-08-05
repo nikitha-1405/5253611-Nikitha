@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char time[11];
+    int hour;
+    scanf("%s", time);
+    hour = (time[0] - '0') * 10 + (time[1] - '0');
+    if (time[8] == 'A') {
+        if (hour == 12) {
+            time[0] = '0';
+            time[1] = '0';
+        
+        }
+    
+    } else if (time[8] == 'P') {
+        if (hour != 12) {
+            hour += 12;
+            time[0] = (hour / 10) + '0';
+            time[1] = (hour % 10) + '0';
+                    
+        }
+    
+    }
+    time[8] = '\0';
+    printf("%s\n", time);
+    return 0 ;
+}
